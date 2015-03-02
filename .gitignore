@@ -16,3 +16,8 @@ fake-eggs/
 parts/
 dist/
 var/
+.DS_Store
+adminPassword.txt
+secrets.cfg
+src/
+.eggs/
