@@ -17,6 +17,7 @@ parts/
 dist/
 var/
 .DS_Store
+README.html
 adminPassword.txt
 secrets.cfg
 src/
