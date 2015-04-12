@@ -16,6 +16,7 @@ fake-eggs/
 parts/
 dist/
 var/
+var*/
 .DS_Store
 README.html
 adminPassword.txt
