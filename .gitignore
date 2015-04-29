@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 *.tmp*
+\!*.tmpl
 *.mo
 *.egg
 *.EGG
@@ -17,7 +18,10 @@ parts/
 dist/
 var/
 var*/
+lib/
+include/
 .DS_Store
+.Python
 README.html
 adminPassword.txt
 secrets.cfg
