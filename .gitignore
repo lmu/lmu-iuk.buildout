@@ -1,7 +1,7 @@
 *.pyc
 *.pyo
 *.tmp*
-\!*.tmpl
+!*.tmpl
 *.mo
 *.egg
 *.EGG

@@ -1,0 +1,46 @@
+rotate 4
+weekly
+create
+compress
+delaycompress
+
+${buildout:directory}/var/client1/*.log {
+    sharedscripts
+    postrotate
+        /bin/kill -USR2 $(cat ${buildout:directory}/var/client1/client1.pid)
+    endscript
+}
+
+${buildout:directory}/var/client2/*.log {
+    sharedscripts
+    postrotate
+        /bin/kill -USR2 $(cat ${buildout:directory}/var/client2/client2.pid)
+    endscript
+}
+
+${buildout:directory}/var/debug-instance/*.log {
+    sharedscripts
+    postrotate
+        /bin/kill -USR2 $(cat ${buildout:directory}/var/debug-instance/debug-instance.pid)
+    endscript
+}
+
+${buildout:directory}/var/zeoserver/zeoserver.log {
+    postrotate
+        /bin/kill -USR2 $(cat ${buildout:directory}/var/zeoserver.pid)
+    endscript
+}
+
+${buildout:directory}/var/log/main*.log {
+    sharedscripts
+    postrotate
+        /bin/kill -USR1 $(cat ${buildout:directory}/var/main.pid)
+    endscript
+}
+
+${buildout:directory}/var/log/transform*.log {
+    sharedscripts
+    postrotate
+        /bin/kill -USR1 $(cat ${buildout:directory}/var/transform.pid)
+    endscript
+}
