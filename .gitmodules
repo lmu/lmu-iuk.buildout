@@ -1,3 +1,0 @@
-[submodule "buildout.d/externals.d/solr.buildout"]
-	path = buildout.d/externals.d/solr.buildout
-	url = https://github.com/loechel/solr.buildout.git
