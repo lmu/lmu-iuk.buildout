@@ -1,5 +1,5 @@
 rotate 4
-weekly
+daily
 create
 compress
 delaycompress
@@ -15,6 +15,20 @@ ${buildout:directory}/var/client2/*.log {
     sharedscripts
     postrotate
         /bin/kill -USR2 $(cat ${buildout:directory}/var/client2/client2.pid)
+    endscript
+}
+
+${buildout:directory}/var/client3/*.log {
+    sharedscripts
+    postrotate
+        /bin/kill -USR2 $(cat ${buildout:directory}/var/client3/client3.pid)
+    endscript
+}
+
+${buildout:directory}/var/client4/*.log {
+    sharedscripts
+    postrotate
+        /bin/kill -USR2 $(cat ${buildout:directory}/var/client4/client4.pid)
     endscript
 }
 

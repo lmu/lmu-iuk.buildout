@@ -18,7 +18,6 @@ Base-Scripts
 Common-Configs &
 ..............
 
-* base.cfg
 * secrets.cfg.tmpl - a template to generate a secrets.cfg, which is necessary for setting up the zope default admin
 * secrets.cfg <-- should not exists on checkout, never add to version controll
 * bin/
@@ -48,14 +47,13 @@ Staging
 Development
 ...........
 
+* develop.cfg a minimal development buildout
+* develop_fullstack.cfg a buildout that contains all components from the Zope Stack so a Zeo-Cluster
 
 
 Sub-Structure:
 * buildout.d/
 
-  * develop_minimal.cfg
-  * develop_fullstack.cfg
-  * production.cfg
 
 Setup and install Plone
 -----------------------
@@ -96,3 +94,12 @@ If you use this buildout manually please follow these steps:
 .. code:: bash
 
     ./bin/instance fg
+
+
+# now you could start your Plone Instance, based on the buildout, for production / staging setups it is normally supervisord via system-supervisord:
+
+.. code:: bash
+
+    system supervisord start 
+    # or
+    sudo /etc/init.d/supervisord start
