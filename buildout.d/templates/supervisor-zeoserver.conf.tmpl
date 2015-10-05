@@ -1,0 +1,23 @@
+
+[program:zeoserver]
+command = /usr/local/Plone/lmu-iuk.buildout/bin/zeoserver console
+process_name = zeoserver
+directory = /usr/local/Plone/lmu-iuk.buildout/parts/zeoserver
+priority = 10
+redirect_stderr = true
+
+
+[eventlistener:MemmonZeoserverInstance]
+command = /usr/local/Plone/lmu-iuk.buildout/bin/memmon -p zeoserver=4GB
+events = TICK_60
+process_name=MemmonZeoserverInstance
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+
+[eventlistener:HttpOkZeoserverInstance]
+command = /usr/local/Plone/lmu-iuk.buildout/bin/httpok -p zeoserver -t 20 http://127.0.0.1:8101
+events = TICK_60
+process_name=HttpOkZeoserverInstance
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+autostart = false
+
