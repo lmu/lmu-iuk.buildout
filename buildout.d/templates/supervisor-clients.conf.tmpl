@@ -1,98 +1,105 @@
 
 [program:debug-instance]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/debug-instance console
+command = ${buildout:directory}/bin/debug-instance console
 process_name = debug-instance
-directory = /usr/local/Plone/lmu-iuk.buildout/parts/debug-instance
+directory = ${buildout:directory}/parts/debug-instance
 priority = 20
 redirect_stderr = true
 startsecs = 120
 autostart = false
 
 [program:client1]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/client1 console
+command = ${buildout:directory}/bin/client1 console
 process_name = client1
-directory = /usr/local/Plone/lmu-iuk.buildout/parts/client1
+directory = ${buildout:directory}/parts/client1
 priority = 20
 redirect_stderr = true
 startsecs = 120
 
 [program:client2]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/client2 console
+command = ${buildout:directory}/bin/client2 console
 process_name = client2
-directory = /usr/local/Plone/lmu-iuk.buildout/parts/client2
+directory = ${buildout:directory}/parts/client2
 priority = 20
 redirect_stderr = true
 startsecs = 120
 
 [program:client3]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/client3 console
+command = ${buildout:directory}/bin/client3 console
 process_name = client3
-directory = /usr/local/Plone/lmu-iuk.buildout/parts/client3
+directory = ${buildout:directory}/parts/client3
 priority = 20
 redirect_stderr = true
 startsecs = 120
 
 [program:client4]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/client4 console
+command = ${buildout:directory}/bin/client4 console
 process_name = client4
-directory = /usr/local/Plone/lmu-iuk.buildout/parts/client4
+directory = ${buildout:directory}/parts/client4
 priority = 20
 redirect_stderr = true
 startsecs = 120
 
 
 [eventlistener:MemmonClient1]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/memmon -p client1=2GB
+command = ${buildout:directory}/bin/memmon -p client1=2GB
 events = TICK_60
+priority = 99
 process_name=MemmonClient1
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:Memmonclient2]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/memmon -p client2=2GB
+command = ${buildout:directory}/bin/memmon -p client2=2GB
 events = TICK_60
+priority = 99
 process_name=Memmonclient2
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:Memmonclient3]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/memmon -p client3=2GB
+command = ${buildout:directory}/bin/memmon -p client3=2GB
 events = TICK_60
+priority = 99
 process_name=Memmonclient3
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:Memmonclient4]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/memmon -p client4=2GB
+command = ${buildout:directory}/bin/memmon -p client4=2GB
 events = TICK_60
+priority = 99
 process_name=Memmonclient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient1]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/httpok -p client1 -t 20 http://127.0.0.1:9010/
+command = ${buildout:directory}/bin/httpok -p client1 -t 20 http://127.0.0.1:9010/
 events = TICK_60
+priority = 99
 process_name=HttpOkClient1
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient2]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/httpok -p client2 -t 20 http://127.0.0.1:9020/
+command = ${buildout:directory}/bin/httpok -p client2 -t 20 http://127.0.0.1:9020/
 events = TICK_60
+priority = 99
 process_name=HttpOkClient2
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient3]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/httpok -p client3 -t 20 http://127.0.0.1:9030/
+command = ${buildout:directory}/bin/httpok -p client3 -t 20 http://127.0.0.1:9030/
 events = TICK_60
+priority = 99
 process_name=HttpOkClient3
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient4]
-command = /usr/local/Plone/lmu-iuk.buildout/bin/httpok -p client4 -t 20 http://127.0.0.1:9040/
+command = ${buildout:directory}/bin/httpok -p client4 -t 20 http://127.0.0.1:9040/
 events = TICK_60
+priority = 99
 process_name=HttpOkClient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
-
