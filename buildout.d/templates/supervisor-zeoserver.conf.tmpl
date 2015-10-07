@@ -3,6 +3,7 @@
 command = ${buildout:directory}/bin/zeoserver console
 process_name = zeoserver
 directory = ${buildout:directory}/parts/zeoserver
+user = plone_daemon
 priority = 10
 redirect_stderr = true
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
