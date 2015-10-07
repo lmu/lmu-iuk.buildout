@@ -48,71 +48,63 @@ startsecs = 120
 
 [eventlistener:MemmonClient1]
 command = ${buildout:directory}/bin/memmon -p client1=2GB
-user = plone_daemon
 events = TICK_60
 priority = 99
 process_name=MemmonClient1
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:MemmonClient2]
 command = ${buildout:directory}/bin/memmon -p client2=2GB
-user = plone_daemon
 events = TICK_60
 priority = 99
-process_name=Memmonclient2
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+process_name=MemmonClient2
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:MemmonClient3]
 command = ${buildout:directory}/bin/memmon -p client3=2GB
-user = plone_daemon
 events = TICK_60
 priority = 99
-process_name=Memmonclient3
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+process_name=MemmonClient3
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:MemmonClient4]
 command = ${buildout:directory}/bin/memmon -p client4=2GB
-user = plone_daemon
 events = TICK_60
 priority = 99
-process_name=Memmonclient4
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+process_name=MemmonClient4
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient1]
 command = ${buildout:directory}/bin/httpok -p client1 -t 20 http://127.0.0.1:9010/
-user = plone_daemon
 events = TICK_60
 priority = 99
 process_name=HttpOkClient1
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient2]
 command = ${buildout:directory}/bin/httpok -p client2 -t 20 http://127.0.0.1:9020/
-user = plone_daemon
 events = TICK_60
 priority = 99
 process_name=HttpOkClient2
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient3]
 command = ${buildout:directory}/bin/httpok -p client3 -t 20 http://127.0.0.1:9030/
-user = plone_daemon
 events = TICK_60
 priority = 99
 process_name=HttpOkClient3
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient4]
 command = ${buildout:directory}/bin/httpok -p client4 -t 20 http://127.0.0.1:9040/
-user = plone_daemon
 events = TICK_60
 priority = 99
 process_name=HttpOkClient4
-environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
