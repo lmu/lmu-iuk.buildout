@@ -11,6 +11,7 @@ environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISO
 
 [eventlistener:MemmonZeoserverInstance]
 command = ${buildout:directory}/bin/memmon -p zeoserver=6GB
+user = plone_daemon
 events = TICK_60
 process_name=MemmonZeoserverInstance
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
@@ -18,6 +19,7 @@ environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISO
 
 [eventlistener:HttpOkZeoserverInstance]
 command = ${buildout:directory}/bin/httpok -p zeoserver -t 20 http://127.0.0.1:${zeoserver:monitor-address}
+user = plone_daemon
 events = TICK_60
 process_name=HttpOkZeoserverInstance
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='Admin;-)',SUPERVISOR_SERVER_URL='http://localhost:9001'
