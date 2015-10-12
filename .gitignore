@@ -25,5 +25,8 @@ include/
 README.html
 adminPassword.txt
 secrets.cfg
-src/
+src/*/
+!src/README.txt
+products/*/
+!products/README.txt
 .eggs/
