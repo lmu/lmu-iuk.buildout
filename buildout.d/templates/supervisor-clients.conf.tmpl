@@ -3,6 +3,7 @@
 command = ${buildout:directory}/bin/debug-instance console
 process_name = debug-instance
 directory = ${buildout:directory}/parts/debug-instance
+environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
@@ -13,6 +14,7 @@ autostart = false
 command = ${buildout:directory}/bin/client1 console
 process_name = client1
 directory = ${buildout:directory}/parts/client1
+environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
@@ -22,6 +24,7 @@ startsecs = 120
 command = ${buildout:directory}/bin/client2 console
 process_name = client2
 directory = ${buildout:directory}/parts/client2
+environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
@@ -31,6 +34,7 @@ startsecs = 120
 command = ${buildout:directory}/bin/client3 console
 process_name = client3
 directory = ${buildout:directory}/parts/client3
+environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
@@ -40,6 +44,7 @@ startsecs = 120
 command = ${buildout:directory}/bin/client4 console
 process_name = client4
 directory = ${buildout:directory}/parts/client4
+environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
