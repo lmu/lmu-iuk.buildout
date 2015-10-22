@@ -7,7 +7,7 @@ environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
-startsecs = 120
+startsecs = 20
 autostart = false
 
 [program:client1]
@@ -18,7 +18,7 @@ environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
-startsecs = 120
+startsecs = 20
 
 [program:client2]
 command = ${buildout:directory}/bin/client2 console
@@ -28,7 +28,7 @@ environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
-startsecs = 120
+startsecs = 20
 
 [program:client3]
 command = ${buildout:directory}/bin/client3 console
@@ -38,7 +38,7 @@ environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
-startsecs = 120
+startsecs = 20
 
 [program:client4]
 command = ${buildout:directory}/bin/client4 console
@@ -48,7 +48,11 @@ environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20
 redirect_stderr = true
-startsecs = 120
+startsecs = 20
+
+[group:clients]
+programs=client1,client2,client3,clien4
+priority=20
 
 
 [eventlistener:MemmonClient1]
@@ -82,6 +86,9 @@ priority = 99
 process_name=MemmonClient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
+[group:MemmonClients]
+programs=MemmonClient1,MemmonClient2,MemmonClient3,MemmonClien4
+priority=99
 
 [eventlistener:HttpOkClient1]
 command = ${buildout:directory}/bin/httpok -p client1 -t 20 http://127.0.0.1:9010/
@@ -113,3 +120,7 @@ events = TICK_60
 priority = 99
 process_name=HttpOkClient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+[group:HttpOkClients]
+programs=HttpOkClient1,HttpOkClient2,HttpOkClient3,HttpOkClien4
+priority=99
