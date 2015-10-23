@@ -51,7 +51,7 @@ redirect_stderr = true
 startsecs = 20
 
 [group:clients]
-programs=client1,client2,client3,clien4
+programs=client1,client2,client3,client4
 priority=20
 
 
@@ -87,7 +87,7 @@ process_name=MemmonClient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 [group:MemmonClients]
-programs=MemmonClient1,MemmonClient2,MemmonClient3,MemmonClien4
+programs=MemmonClient1,MemmonClient2,MemmonClient3,MemmonClient4
 priority=99
 
 [eventlistener:HttpOkClient1]
@@ -122,5 +122,5 @@ process_name=HttpOkClient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 [group:HttpOkClients]
-programs=HttpOkClient1,HttpOkClient2,HttpOkClient3,HttpOkClien4
+programs=HttpOkClient1,HttpOkClient2,HttpOkClient3,HttpOkClient4
 priority=99
