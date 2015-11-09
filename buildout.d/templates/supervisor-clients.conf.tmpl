@@ -67,7 +67,7 @@ environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_S
 command = ${buildout:directory}/bin/memmon -p client2=2GB
 events = TICK_60
 priority = 99
-process_name=MemmonClient2
+process_name = MemmonClient2
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
@@ -75,7 +75,7 @@ environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_S
 command = ${buildout:directory}/bin/memmon -p client3=2GB
 events = TICK_60
 priority = 99
-process_name=MemmonClient3
+process_name = MemmonClient3
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
@@ -83,44 +83,46 @@ environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_S
 command = ${buildout:directory}/bin/memmon -p client4=2GB
 events = TICK_60
 priority = 99
-process_name=MemmonClient4
+process_name = MemmonClient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
-[group:MemmonClients]
-programs=MemmonClient1,MemmonClient2,MemmonClient3,MemmonClient4
-priority=99
+; Groups of eventlistener not possible at the moment
+; [group:MemmonClients]
+; programs=MemmonClient1,MemmonClient2,MemmonClient3,MemmonClient4
+; priority=99
 
 [eventlistener:HttpOkClient1]
-command = ${buildout:directory}/bin/httpok -p client1 -t 20 http://127.0.0.1:9010/
+command = ${buildout:directory}/bin/httpok -p client1 -t 20 http://127.0.0.1:${settings:client1-addr}/
 events = TICK_60
 priority = 99
-process_name=HttpOkClient1
+process_name = HttpOkClient1
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient2]
-command = ${buildout:directory}/bin/httpok -p client2 -t 20 http://127.0.0.1:9020/
+command = ${buildout:directory}/bin/httpok -p client2 -t 20 http://127.0.0.1:${settings:client2-addr}/
 events = TICK_60
 priority = 99
-process_name=HttpOkClient2
+process_name = HttpOkClient2
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient3]
-command = ${buildout:directory}/bin/httpok -p client3 -t 20 http://127.0.0.1:9030/
+command = ${buildout:directory}/bin/httpok -p client3 -t 20 http://127.0.0.1:${settings:client3-addr}/
 events = TICK_60
 priority = 99
-process_name=HttpOkClient3
+process_name = HttpOkClient3
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
 
 [eventlistener:HttpOkClient4]
-command = ${buildout:directory}/bin/httpok -p client4 -t 20 http://127.0.0.1:9040/
+command = ${buildout:directory}/bin/httpok -p client4 -t 20 http://127.0.0.1:${settings:client4-addr}/
 events = TICK_60
 priority = 99
-process_name=HttpOkClient4
+process_name = HttpOkClient4
 environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
 
-[group:HttpOkClients]
-programs=HttpOkClient1,HttpOkClient2,HttpOkClient3,HttpOkClient4
-priority=99
+; Groups of eventlistener not possible at the moment
+; [group:HttpOkClients]
+; programs=HttpOkClient1,HttpOkClient2,HttpOkClient3,HttpOkClient4
+; priority=99
