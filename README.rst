@@ -65,11 +65,11 @@ If you use this buildout manually please follow these steps:
 # setup a virtualenv (python2.7) inside the buildout
 
 .. code:: bash
-    
+
     virtualenv .
     source bin activate
 
-# install zc.buildout via pip or easyinstall 
+# install zc.buildout via pip or easyinstall
 
 .. code:: bash
 
@@ -100,6 +100,6 @@ If you use this buildout manually please follow these steps:
 
 .. code:: bash
 
-    system supervisord start 
+    system supervisord start
     # or
     sudo /etc/init.d/supervisord start

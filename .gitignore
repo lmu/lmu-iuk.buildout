@@ -30,3 +30,4 @@ src/*/
 products/*/
 !products/README.txt
 .eggs/
+#zopehealthwatcher.ini
