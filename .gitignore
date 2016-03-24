@@ -31,3 +31,4 @@ products/*/
 !products/README.txt
 .eggs/
 #zopehealthwatcher.ini
+.plone.versioncheck.tracked.json

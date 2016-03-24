@@ -6,13 +6,13 @@ Viewlets that might need to be modified for some specific presentation layers:
 * plone.comments
 * plone.contentratings.userratings
 
-Develop Views for 
+Develop Views for
 
 * Blog Folder
 
-  * Listing View 
+  * Listing View
   * Front Page View
 
-* Blog Entry 
+* Blog Entry
 
   * Normal Entry View
