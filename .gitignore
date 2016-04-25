@@ -1,34 +1,107 @@
-*.pyc
-*.pyo
-*.tmp*
-!*.tmpl
+# Git Ignore List for Plone Buildout (zc.buildout)
+# .gitignore may get also read by editors (like Atom.io) and hides file in Editor.
+
+## Python
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# C extensions
+*.so
+
+# Translations
+# gnu gettext translations
 *.mo
+*.pot
+
+# Distribution / packaging / Python venv / virtualenv
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+fake-eggs/
+bin/
+include/
+lib/
+lib64/
+parts/
+sdist/
+var/
+var*/
+.installed.cfg
+.*.cfg
 *.egg
 *.EGG
 *.egg-info
 *.EGG-INFO
-.*.cfg
-bin/
-build/
-develop-eggs/
-downloads/
-eggs/
-fake-eggs/
-parts/
-dist/
-var/
-var*/
-lib/
-include/
-.DS_Store
-.Python
-README.html
-adminPassword.txt
-secrets.cfg
+*.egg-info/
+*.EGG-INFO/
+pip-selfcheck.json
+pyvenv.cfg
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+
+
+# Django stuff:
+*.log
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Additional Plone / zc.buildout structure
 src/*/
 !src/README.txt
 products/*/
 !products/README.txt
-.eggs/
-#zopehealthwatcher.ini
+buildout.cfg
+# buildout.cfg should be a symlink to an already existing *.cfg file
+secrets.cfg
+adminPassword.txt
+README.html
+Readme.html
 .plone.versioncheck.tracked.json
+#zopehealthwatcher.ini
+
+*.tmp*
+!*.tmpl
+
+## Vagrant Environment
+.vagrant/
+
+## Ansible specials
+# Ansible Base
+*.retry
+
+# Additional settings
+graph/
+facts-cache/
+secrets/
+secrets.yml
+
+## Mac specifics
+.DS_Store
