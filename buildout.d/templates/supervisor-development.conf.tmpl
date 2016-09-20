@@ -1,0 +1,104 @@
+
+[program:zeoserver]
+command = ${buildout:directory}/bin/zeoserver console
+process_name = zeoserver
+directory = ${buildout:directory}/parts/zeoserver
+user = plone_daemon
+priority = 10
+redirect_stderr = true
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+
+[program:debug-instance]
+command = ${buildout:directory}/bin/debug-instance console
+process_name = debug-instance
+directory = ${buildout:directory}/parts/debug-instance
+environment = PLONE_CSRF_DISABLED=true
+user = plone_daemon
+priority = 20
+redirect_stderr = true
+startsecs = 20
+autostart = false
+
+[program:client1]
+command = ${buildout:directory}/bin/client1 console
+process_name = client1
+directory = ${buildout:directory}/parts/client1
+environment = PLONE_CSRF_DISABLED=true
+user = plone_daemon
+priority = 20
+redirect_stderr = true
+startsecs = 20
+
+[program:client2]
+command = ${buildout:directory}/bin/client2 console
+process_name = client2
+directory = ${buildout:directory}/parts/client2
+environment = PLONE_CSRF_DISABLED=true
+user = plone_daemon
+priority = 20
+redirect_stderr = true
+startsecs = 20
+
+[group:clients]
+programs=client1,client2
+priority=20
+
+
+[eventlistener:MemmonZeoserverInstance]
+command = ${buildout:directory}/bin/memmon -p zeoserver=6GB
+events = TICK_60
+process_name=MemmonZeoserverInstance
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+
+[eventlistener:MemmonClient1]
+command = ${buildout:directory}/bin/memmon -p client1=2GB
+events = TICK_60
+priority = 99
+process_name=MemmonClient1
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+
+[eventlistener:MemmonClient2]
+command = ${buildout:directory}/bin/memmon -p client2=2GB
+events = TICK_60
+priority = 99
+process_name = MemmonClient2
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+
+; Groups of eventlistener not possible at the moment
+; [group:MemmonClients]
+; programs=MemmonClient1,MemmonClient2,MemmonClient3,MemmonClient4
+; priority=99
+
+
+[eventlistener:HttpOkZeoserverInstance]
+command = ${buildout:directory}/bin/httpok -p zeoserver -t 20 http://127.0.0.1:${zeoserver:monitor-address}
+events = TICK_60
+process_name=HttpOkZeoserverInstance
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+autostart = false
+
+
+[eventlistener:HttpOkClient1]
+command = ${buildout:directory}/bin/httpok -p client1 -t 20 http://127.0.0.1:${settings:client1-addr}/
+events = TICK_60
+priority = 99
+process_name = HttpOkClient1
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+
+[eventlistener:HttpOkClient2]
+command = ${buildout:directory}/bin/httpok -p client2 -t 20 http://127.0.0.1:${settings:client2-addr}/
+events = TICK_60
+priority = 99
+process_name = HttpOkClient2
+environment=SUPERVISOR_USERNAME='admin',SUPERVISOR_PASSWORD='admin',SUPERVISOR_SERVER_URL='http://localhost:9001'
+
+
+; Groups of eventlistener not possible at the moment
+; [group:HttpOkClients]
+; programs=HttpOkClient1,HttpOkClient2,HttpOkClient3,HttpOkClient4
+; priority=99
