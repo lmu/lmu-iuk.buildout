@@ -1,8 +1,8 @@
 
-[program:debug-instance]
-command = ${buildout:directory}/bin/debug-instance console
-process_name = debug-instance
-directory = ${buildout:directory}/parts/debug-instance
+[program:instance]
+command = ${buildout:directory}/bin/instance console
+process_name = instance
+directory = ${buildout:directory}/parts/instance
 environment = PLONE_CSRF_DISABLED=true
 user = plone_daemon
 priority = 20

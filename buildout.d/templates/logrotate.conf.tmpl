@@ -32,10 +32,10 @@ ${buildout:directory}/var/client4/*.log {
     endscript
 }
 
-${buildout:directory}/var/debug-instance/*.log {
+${buildout:directory}/var/instance/*.log {
     sharedscripts
     postrotate
-        /bin/kill -USR2 $(cat ${buildout:directory}/var/debug-instance/debug-instance.pid)
+        /bin/kill -USR2 $(cat ${buildout:directory}/var/instance/instance.pid)
     endscript
 }
 
