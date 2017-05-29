@@ -42,6 +42,9 @@ var*/
 *.EGG-INFO/
 pip-selfcheck.json
 pyvenv.cfg
+.python-version
+.plone.versioncheck.cache/
+versions.html
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
